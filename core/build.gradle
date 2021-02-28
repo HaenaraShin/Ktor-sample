@@ -1,0 +1,19 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+    id 'org.jetbrains.kotlin.plugin.serialization'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "io.ktor:ktor-client-core:$ktor_version"
+    implementation "io.ktor:ktor-client-cio:$ktor_version"
+    implementation "io.ktor:ktor-client-serialization:$ktor_version"
+    implementation "io.ktor:ktor-client-serialization-jvm:$ktor_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0"
+}
