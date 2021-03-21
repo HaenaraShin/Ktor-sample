@@ -7,10 +7,14 @@ import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.features.json.serializer.KotlinxSerializer
 import io.ktor.client.request.get
 import io.ktor.http.parseQueryString
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
 import okhttp3.Response
+import java.lang.Thread.sleep
 import kotlin.concurrent.thread
 
 suspend fun main() {
@@ -26,7 +30,7 @@ class MyClass {
             }
         }
 
-        return client.get<List<Cat>>("https://api.thecatapi.com/v1/images/search")
+        return client.get<List<Cat>>("https://api.thecatapi.com/v1/images/search?limit=5")
     }
 
     companion object {
