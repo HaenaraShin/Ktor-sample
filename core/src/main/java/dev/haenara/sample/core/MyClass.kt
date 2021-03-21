@@ -2,10 +2,16 @@ package dev.haenara.sample.core
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
+import io.ktor.client.engine.okhttp.*
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.features.json.serializer.KotlinxSerializer
 import io.ktor.client.request.get
+import io.ktor.http.parseQueryString
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
+import okhttp3.Interceptor
+import okhttp3.Response
+import kotlin.concurrent.thread
 
 suspend fun main() {
     val cats = MyClass().getCatFromApi()
@@ -14,7 +20,7 @@ suspend fun main() {
 
 class MyClass {
     suspend fun getCatFromApi(): List<Cat> {
-        val client = HttpClient(CIO) {
+        val client = HttpClient() {
             install(JsonFeature) {
                 serializer = KotlinxSerializer(json)
             }
