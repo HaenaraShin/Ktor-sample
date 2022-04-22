@@ -2,6 +2,8 @@
 
 🔨  An android sample project using Ktor client.
 
+📌 자세한 설명은 [블로그](https://haenarashin.github.io/android,/kotlin,/ktor/2021/03/21/Ktor_tutorial.html)에서 확인하실 수 있습니다.
+
 ## Dependencies
 
 ### build.gradle(root)
